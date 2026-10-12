@@ -3,7 +3,7 @@
   "name": "Switchboard for Claude",
   "short_name": "Switchboard",
   "version": "0.1.0",
-  "description": "Unofficial: switch between Claude.ai and Claude Platform accounts, track usage limits and API spend, and auto-switch with rules.",
+  "description": "Unofficial: switch claude.ai and Claude Platform accounts in one click, track usage limits, auto-switch by rules. 100% local.",
   "minimum_chrome_version": "120",
   "background": {
     "service_worker": "background.js",
