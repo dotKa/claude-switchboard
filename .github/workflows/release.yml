@@ -1,0 +1,50 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Build and release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Test
+        run: npm run test
+
+      - name: Verify manifest/package version matches tag
+        run: |
+          TAG="${GITHUB_REF_NAME#v}"
+          node scripts/check-version.mjs "$TAG"
+
+      - name: Build
+        run: npm run build
+
+      - name: Package extension
+        working-directory: dist
+        run: zip -qr ../claude-switchboard.zip .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Switchboard for Claude ${{ github.ref_name }}
+          files: claude-switchboard.zip
+          generate_release_notes: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

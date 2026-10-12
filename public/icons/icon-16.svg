@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16">
+  <!-- Hand-tuned 16px variant of icon.svg (no ghost ring: it is illegible at this size). -->
+  <rect x="0" y="0" width="16" height="16" rx="3.5" fill="#262624"/>
+  <rect x="1.5" y="4.5" width="13" height="7" rx="3.5" fill="#d97757"/>
+  <circle cx="11" cy="8" r="2.5" fill="#ffffff"/>
+</svg>

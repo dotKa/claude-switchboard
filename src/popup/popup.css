@@ -1,0 +1,335 @@
+/* Popup layout (~360px wide, max ~580px tall so Chrome doesn't clip). */
+
+body {
+  width: 360px;
+  max-height: 580px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.popup-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px 8px;
+}
+.popup-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+.popup-subtitle {
+  font-size: 11px;
+  color: var(--text-3);
+  font-weight: 400;
+}
+.popup-header-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 2px;
+}
+
+/* Active account card */
+.active-card {
+  margin: 8px 12px 0;
+  padding: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.active-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  flex-shrink: 0;
+  user-select: none;
+}
+.avatar.small {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+}
+.avatar.pill {
+  opacity: 0.45;
+}
+.active-name {
+  font-weight: 700;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+}
+.active-name > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.active-email {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-top: -1px;
+}
+.active-usage {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.stale-badge {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--warn);
+  background: var(--warn-bg);
+  border-radius: 99px;
+  padding: 1px 7px;
+  white-space: nowrap;
+}
+.empty-usage {
+  color: var(--text-3);
+  font-size: 12px;
+}
+
+/* Account list */
+.accounts {
+  margin: 10px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.account-row {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 12px;
+}
+.account-row:hover:not(:disabled) {
+  background: var(--surface-2);
+}
+.account-row.disabled-state {
+  cursor: default;
+  background: transparent;
+}
+.account-row-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.account-id {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.account-name {
+  font-weight: 600;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-3);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 99px;
+  padding: 1px 6px;
+  white-space: nowrap;
+}
+.tag.expired {
+  color: var(--danger);
+  border-color: var(--danger-bg);
+  background: var(--danger-bg);
+}
+.account-side {
+  min-width: 96px;
+  max-width: 150px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  text-align: right;
+}
+.account-side .mini-bars {
+  align-self: stretch;
+}
+.mini-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.mini-track {
+  height: 4px;
+  background: var(--track);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.mini-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--ok);
+  transition: width var(--duration) ease;
+}
+.mini-fill.warn {
+  background: var(--warn);
+}
+.mini-fill.danger {
+  background: var(--danger);
+}
+.switch-hint {
+  margin-top: 2px;
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+/* Footer */
+.add-account {
+  margin: 10px 12px 8px;
+}
+.add-account button {
+  width: 100%;
+}
+.add-explain {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--text-3);
+  text-align: left;
+}
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px 10px;
+  border-top: 1px solid var(--border);
+}
+.footer-label {
+  font-weight: 600;
+  font-size: 12px;
+}
+.rule-hint {
+  font-size: 11px;
+  color: var(--text-3);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  text-align: right;
+}
+
+/* Empty state */
+.empty-state {
+  margin: 12px;
+  padding: 24px 16px;
+  text-align: center;
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius-lg);
+}
+.empty-title {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.empty-steps {
+  text-align: left;
+  margin: 0 0 14px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 12px;
+}
+
+.loading {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-3);
+}
+
+/* Product tabs: Claude.ai | Claude Platform */
+.tabs {
+  display: flex;
+  gap: 2px;
+  margin: 0 12px 10px;
+  padding: 2px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.tab {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 0;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--text-2);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--duration), color var(--duration);
+}
+.tab:hover {
+  color: var(--text);
+}
+.tab.selected {
+  background: var(--surface);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+.tab:focus-visible {
+  outline: 2px solid var(--accent-focus);
+  outline-offset: 1px;
+}
+.tab-count {
+  min-width: 16px;
+  padding: 0 5px;
+  border-radius: 99px;
+  background: var(--track);
+  color: var(--text-3);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+.tab-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--warn);
+}
+
+.footer-note {
+  margin: 0;
+  color: var(--text-3);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.active-actions {
+  margin-left: auto;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}

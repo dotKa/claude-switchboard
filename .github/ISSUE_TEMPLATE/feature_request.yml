@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest an idea or improvement
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem does this solve?
+      description: Describe the friction or use case, not just the feature.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+      description: What would you like the extension to do?
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+      description: Workarounds you use today, or other approaches you considered.
+  - type: checkboxes
+    id: principles
+    attributes:
+      label: Sanity check
+      options:
+        - label: This does not require sending data anywhere other than claude.ai (local-first project)
+          required: true
+        - label: This does not imply affiliation with or endorsement by Anthropic
+          required: true

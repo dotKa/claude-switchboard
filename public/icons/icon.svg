@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <!-- Switchboard for Claude: a toggle switch, the knob being "your account".
+       The faint ring marks the position it switched from. Original artwork, MIT licensed.
+       Not affiliated with Anthropic. -->
+  <rect x="8" y="8" width="112" height="112" rx="28" fill="#262624"/>
+  <rect x="20" y="42" width="88" height="44" rx="22" fill="#d97757"/>
+  <circle cx="42" cy="64" r="11" fill="none" stroke="#f3d6cb" stroke-opacity="0.55" stroke-width="4"/>
+  <circle cx="86" cy="64" r="16" fill="#ffffff"/>
+</svg>

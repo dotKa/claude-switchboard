@@ -1,0 +1,41 @@
+name: Usage endpoint broke
+description: Usage numbers are missing, wrong, or the endpoint claude.ai exposes seems to have changed
+labels: [bug, endpoint]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Switchboard reads usage from an **unofficial, undocumented claude.ai endpoint** (the one its settings page uses). When Anthropic changes it, tracking breaks until the extension is updated — this template helps us confirm that quickly. **Never paste session keys, cookies, or raw responses containing personal data.**
+  - type: textarea
+    id: symptom
+    attributes:
+      label: Symptom
+      description: e.g. usage shows "unavailable" for all accounts, percentages stuck at 0, errors in console, etc.
+    validations:
+      required: true
+  - type: checkboxes
+    id: settings-page
+    attributes:
+      label: Does claude.ai's own Settings → Usage page still show correct numbers?
+      options:
+        - label: 'Yes, the claude.ai usage page looks normal'
+        - label: 'No, even claude.ai itself looks different/broken'
+  - type: textarea
+    id: network
+    attributes:
+      label: Network response (redacted)
+      description: In Chrome devtools → Network, the request to claude.ai containing "usage" — its HTTP status, and the *shape* of the JSON (keys only, no values). Optional but very helpful.
+  - type: input
+    id: extension-version
+    attributes:
+      label: Extension version
+      placeholder: 0.1.0
+    validations:
+      required: true
+  - type: input
+    id: chrome-version
+    attributes:
+      label: Chrome version
+      placeholder: "131.0.xxxx.x"
+    validations:
+      required: true

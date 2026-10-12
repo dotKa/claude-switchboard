@@ -1,0 +1,22 @@
+{
+  "name": "claude-switchboard",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Unofficial Chrome extension: switch between Claude.ai accounts, track usage limits, and auto-switch by rules.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite build --watch --mode development",
+    "build": "tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "zip": "npm run build && cd dist && zip -qr ../claude-switchboard.zip .",
+    "check-version": "node scripts/check-version.mjs"
+  },
+  "devDependencies": {
+    "@types/chrome": "^0.0.287",
+    "typescript": "^5.6.0",
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0"
+  }
+}
