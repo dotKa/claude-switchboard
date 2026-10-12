@@ -1,9 +1,13 @@
 """Writes docs/store/index.html: a review page for the Chrome Web Store assets and listing copy.
 
-Run from the repo root: python3 scripts/store-preview.py
+Run from the repo root: python3 scripts/store-preview.py [--embed OUT.html]
+--embed writes a self-contained copy with the images inlined as data URIs (for viewers that
+can't load files next to the page); keep that copy out of git.
 """
+import base64
 import html
 import re
+import sys
 
 LISTING = 'docs/store-listing.md'
 OUT = 'docs/store/index.html'
@@ -107,6 +111,17 @@ a {{ color:#f0a487; }}
 </body>
 </html>
 '''
+
+if '--embed' in sys.argv:
+    OUT = sys.argv[sys.argv.index('--embed') + 1]
+    mime = {'jpg': 'image/jpeg', 'png': 'image/png'}
+
+    def embed(match):
+        name = match.group(1)
+        data = base64.b64encode(open(f'docs/store/{name}', 'rb').read()).decode()
+        return f'src="data:{mime[name.rsplit(".", 1)[1]]};base64,{data}"'
+
+    page = re.sub(r'src="([\w.-]+\.(?:jpg|png))"', embed, page)
 
 with open(OUT, 'w') as f:
     f.write(page)
