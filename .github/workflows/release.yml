@@ -41,7 +41,7 @@ jobs:
         run: zip -qr ../claude-switchboard.zip .
 
       - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Switchboard for Claude ${{ github.ref_name }}
           files: claude-switchboard.zip
